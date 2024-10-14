@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Küsimused ja Vastused</title>
+</head>
+<body>
+    <h1>Küsimused ja vastused</h1>
+    <a href="{{ url_for('ask') }}">Esita uus küsimus</a>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <strong>{{ question['question'] }}</strong>
+                <ul>
+                    {% for answer in question['answers'] %}
+                        <li>{{ answer }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{{ url_for('answer', question_id=loop.index0) }}">Vasta sellele küsimusele</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

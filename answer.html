@@ -1,0 +1,18 @@
+
+
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Vasta küsimusele</title>
+</head>
+<body>
+    <h1>Vasta küsimusele: "{{ question['question'] }}"</h1>
+    <form action="{{ url_for('answer', question_id=question_id) }}" method="POST">
+        <label for="answer">Vastus:</label>
+        <input type="text" id="answer" name="answer" required>
+        <button type="submit">Vasta</button>
+    </form>
+    <a href="{{ url_for('index') }}">Tagasi avalehele</a>
+</body>
+</html>
